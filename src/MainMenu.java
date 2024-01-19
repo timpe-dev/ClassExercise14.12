@@ -12,9 +12,9 @@ public class MainMenu {
         mainWindow.add(panel);
         JButton classManagerBtn = new JButton("Class manager");
         panel.add(classManagerBtn);
-        JButton attendanceBtn = new JButton("Class manager");
+        JButton attendanceBtn = new JButton("Attendance manager");
         panel.add(attendanceBtn);
-        JButton gradeManagerBtn = new JButton("Class manager");
+        JButton gradeManagerBtn = new JButton("Grade manager");
         panel.add(gradeManagerBtn);
 
         classManagerBtn.addActionListener(new ActionListener() {
