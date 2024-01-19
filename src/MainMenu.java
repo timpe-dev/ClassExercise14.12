@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicArrowButton;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,24 +7,50 @@ import java.awt.event.ActionListener;
 public class MainMenu {
     MainMenu() {
         JFrame mainWindow = new JFrame("Attendance Manager");
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        mainWindow.add(panel);
+        JButton classManagerBtn = new JButton("Class manager");
+        panel.add(classManagerBtn);
+        JButton attendanceBtn = new JButton("Class manager");
+        panel.add(attendanceBtn);
+        JButton gradeManagerBtn = new JButton("Class manager");
+        panel.add(gradeManagerBtn);
 
-        int width = 1400;
-        int height = 700;
-        mainWindow.setBounds(screenSize.width / 2 - width / 2, screenSize.height / 2 - height / 2, width, height);        Button classManager = new Button("Class manager");
-        classManager.setBounds(10, 10, 100, 100);
-        mainWindow.add(classManager);
-        mainWindow.setLayout(null);
-        mainWindow.setVisible(true);
-
-        classManager.addActionListener(new ActionListener() {
+        classManagerBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ClassCreator classCreator = new ClassCreator();
+                mainWindow.dispose();
             }
         });
 
+        attendanceBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Attendance attendance = new Attendance();
+                mainWindow.dispose();
+
+            }
+        });
+
+        gradeManagerBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Grades grades = new Grades();
+                mainWindow.dispose();
+
+            }
+        });
+        mainWindow.pack();
+        mainWindow.setLocationRelativeTo(null);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainWindow.setVisible(true);
+        mainWindow.setResizable(false);
+    }
+
+    public static void main(String[] args) {
+        LoginScreen loginScreen = new LoginScreen();
     }
 
 }
